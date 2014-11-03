@@ -1,3 +1,6 @@
+<?php session_start();
+	error_reporting(E_ERROR);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,36 +12,61 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 	<!-- SCRIPTS PARA EL FUNCIONAMIENTO DE LOS INCLUDE -->
-		<script type="text/javascript" src="js/persona.js"></script>
+		<?php
+			if($_SESSION["usuario"]["rol"] == "administrador"){
+				echo '<script type="text/javascript" src="js/administrador.js"></script>';
+			}else if($_SESSION["usuario"]["rol"] == "estudiante"){
+				echo '<script type="text/javascript" src="js/estudiante.js"></script>';
+			}
+		?>
 	<!--  FIN  -->
 
 </head>
 <body>
 	<header class="header">
-		<div id ="banner" class="colxs-12">
-			<h1>PASAPORTE VITUAL MOSQUERA JOVEN moscoso</h1>
-			<img src="images/logo_alcaldia.png" id="img_banner">
+		<div align = "center">
+			<img src="images/img_plataforma/logo_alcaldia.png" id="img_banner">
+			<br />
+			<?php
+				if(isset($_SESSION["usuario"])){
+					echo "
+						<label><b>Bienvenido : </b>".$_SESSION["usuario"]["nombre"]." </label>
+						<button id='cerrar_session' class='btn btn-lg btn-warning btn-block'>Cerrar Session</button>
+					";
+				}
+			?>
 		</div>
 	</header>
-	<div>
-		Bienvenido XX ------------------------------ cerrar session
-	</div>
 	<div class="row" id="container_principal">
-		<section class="col-xs-10">
+		<div class="col-xs-6 col-md-3">
+			<a href="#" class="thumbnail">
+				<img src="images/img_plataforma/logo.png" alt="Logotipo Mosquera Joven">
+			</a>
+		</div>
+		<aside id="menu" class="col-xs-1">
+			<?php
+				if($_SESSION["usuario"]["rol"] == "administrador"){
+					include_once("view/menu_administrador.php");
+				}else if($_SESSION["usuario"]["rol"] == "estudiante"){
+					include_once("view/menu_estudiante.php");
+				}
+			?>
+		</aside>
+		<section class="col-xs-4 col-md-7">
 			<article>
 				<div id="container">
-					sadgafsd
+					<?php
+						if(!isset($_SESSION["usuario"])){
+							include_once("view/login.php");
+						}
+					?>
 				</div>
 			</article>
 		</section>
-		<aside id="menu" class="col-xs-2">
-			<?php
-				include_once("view/menu_administrador.php");
-			?>
-		</aside>
 	</div>
-	<footer id="pie">
-		<h5>Copiright  2014</h5>
+	<footer id="pie" align="center">
+		<hr />
+		<h4><b>Copiright ITodosoft 2014</b></h4>
 	</footer>
 </body>
 </html>
