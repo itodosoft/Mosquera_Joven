@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Papeleria</title>
+	<title>Mosquera Joven</title>
 	<script src="js/jquery-2.1.0.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -16,7 +16,8 @@
 <body>
 	<header class="header">
 		<div id ="banner" class="colxs-12">
-			<h1>PASAPORTE VITAL MOSQUERA JOVEN</h1>
+			<h1>PASAPORTE VITUAL MOSQUERA JOVEN moscoso</h1>
+			<img src="images/logo_alcaldia.png" id="img_banner">
 		</div>
 	</header>
 	<div>
@@ -37,7 +38,7 @@
 		</aside>
 	</div>
 	<footer id="pie">
-		<h5>Copiright Blancolino 2014</h5>
+		<h5>Copiright  2014</h5>
 	</footer>
 </body>
 </html>
