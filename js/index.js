@@ -11,6 +11,7 @@ $(function(){
 	$("#form_login").submit(function(){
 		useAJAX( "GET","response/login.php",$(this).serialize(),
 			function (data){
+				console.log(data);
 				if(data == 1){
 					window.location = "index.php";
 				}else{
