@@ -75,7 +75,7 @@
 	<br/>
 	<footer id="pie" align="center">
 	
-		<h4><b>Hector Jojoa cabrera</b></h4>
+		<h4><b>gigggjkg gdgh Hector Jojoa cabrera desde nuevo equipoghjghjghjghj hjghjghghgj</b></h4>
 	</footer>
 </body>
 </html>
